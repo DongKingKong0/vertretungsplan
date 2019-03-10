@@ -10,7 +10,7 @@ function getInfoContainer() {
   return document.getElementById('info-container');
 }
 
-function updateBox(klasse, raum, fach, stunde, hinweis, art, date) { 
+function updateBox(klasse, raum, fach, stunde, hinweis, art, date) {
 	if (isStundeInPast(date, stunde)) {
 	  return;
 	}
@@ -29,11 +29,11 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art, date) {
 
     var top = createDivWithClass('top');
     top.classList.add(findBorderColorCssClassByGrade(klasse));
-      
+
 			if (fach.trim() !== 'null') {
 				var kastenFach = createDivWithClass('kasten-fach');
 				kastenFach.innerText = fach;
-				top.appendChild(kastenFach);			
+				top.appendChild(kastenFach);
 			}
 
 			if (raum.trim() !== 'null') {
@@ -110,11 +110,7 @@ function isNewGrade(schoolClass) {
 }
 
 function getGradeOfClass(schoolClass) {
-  if (schoolClass.length === 2) {
-    return schoolClass.substring(0, 1);
-  } else {
-    return schoolClass.substring(0, 2);
-  }
+  return parseInt(schoolClass);
 }
 
 function updateInfoDateBox(date) {
